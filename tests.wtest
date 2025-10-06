@@ -1,0 +1,7 @@
+import objetos.*
+describe "Leo" {
+    test "patear" {
+        lionel.patearLargo()
+        assert.equals(game.at(8,5), pelota.position())
+    }
+}
