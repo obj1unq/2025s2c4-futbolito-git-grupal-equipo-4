@@ -18,13 +18,15 @@ object lionel {
 	}
 
 	method taquito() {
-		if (pelota.position() == self.position()) {
-			pelota.position = game.at(0.max(pelota.position().x() - 2), pelota.position().y())
-		}
+		pelota.taquito()
 	}
 }
 
 object pelota {
 	const property image="pelota.png"
-	var property position = game.at(5,5)	
+	var property position = game.at(5,5)
+
+	method taquito() {
+		position = game.at(0.max(position.x() - 2), position.y())
+	}
 }
