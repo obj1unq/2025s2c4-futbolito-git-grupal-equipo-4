@@ -27,6 +27,8 @@ object pelota {
 	var property position = game.at(5,5)
 
 	method taquito() {
-		position = game.at(0.max(position.x() - 2), position.y())
+		if (self.position() == lionel.position()) {
+			position = game.at(0.max(position.x() - 2), position.y())
+		}
 	}
 }
