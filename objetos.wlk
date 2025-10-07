@@ -3,11 +3,11 @@ import wollok.game.*
 import pgmProgram.*
 
 object lionel {
-	
-	var property position = game.at(3,5)
+	var camiseta = camisetaTitular
+	var property position = game.at(0, 5)
 	
 	method image() {
-		return "lionel-titular.png"
+		return "lionel-" + camiseta.estado() + ".png"
 	}
 
 	method retroceder() {
@@ -17,6 +17,19 @@ object lionel {
 	method avanzar() {
 		position = game.at((game.width() - 1).min(position.x() + 1), position.y()) 
 	}
+
+	method cambiarDeCamiseta() { 
+		self.validarPosicionEnElBordeIzq()
+		camiseta = camiseta.siguienteCamiseta() 
+	}
+	
+	method validarPosicionEnElBordeIzq() {
+		if(! self.estaEnElBordeIzq()){
+			self.error("Lionel no está en el borde izquierdo")
+		}
+	}
+
+	method estaEnElBordeIzq() = position == game.at(0, 5)
 	
 	method patearDerecha() {
 		if (position == pelota.position()) {pelota.pateoADerecha()}
@@ -38,3 +51,15 @@ object pelota {
 	}
 }
 
+object camisetaSuplente {
+	method estado() = "suplente"
+
+	method siguienteCamiseta() = camisetaTitular 
+  
+}
+
+object camisetaTitular {
+	method estado() = "titular"
+
+	method siguienteCamiseta() = camisetaSuplente
+}
