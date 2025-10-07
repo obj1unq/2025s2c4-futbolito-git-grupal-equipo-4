@@ -4,7 +4,7 @@ describe "Ir a saque lateral" {
     method initialize(){
         game.height(5)
         game.width(5)
-        //game.clear()
+        game.clear()
     }
   test "Lionel no está sobre la pelota y va al saque lateral con ella" {
     lionel.position(game.at(4, 4))
