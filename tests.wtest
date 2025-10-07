@@ -1,7 +1,19 @@
 import objetos.*
+import wollok.game.*
+
 describe "Leo" {
+    method initialize() {
+        game.height(10)
+        game.width(10)
+    }
     test "patear" {
-        lionel.patearLargo()
+        lionel.position(pelota.position())
+        lionel.patearDerecha()
         assert.equals(game.at(8,5), pelota.position())
     }
+    test "patear fallido" {
+        lionel.patearDerecha()
+        assert.equals(game.at(5,5), pelota.position())
+    }
+    
 }
