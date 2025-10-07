@@ -1,5 +1,6 @@
 /** First Wollok example */
 import wollok.game.*
+import pgmProgram.*
 
 object lionel {
 	var camiseta = camisetaTitular
@@ -29,12 +30,25 @@ object lionel {
 	}
 
 	method estaEnElBordeIzq() = position == game.at(0, 5)
+	
+	method patearDerecha() {
+		if (position == pelota.position()) {pelota.pateoADerecha()}
+			else { game.say(self, "pelota ven a mi") } 
+	}
+	
 }
 
 
 object pelota {
 	const property image="pelota.png"
 	var property position = game.at(5,5)	
+
+	method pateoADerecha() {
+		position = game.at(self.incrementarXen3Max(position.x()), position.y())
+	}
+	method incrementarXen3Max(posX) {
+		return posX +  3.min(game.width() - posX) 
+	}
 }
 
 object camisetaSuplente {
