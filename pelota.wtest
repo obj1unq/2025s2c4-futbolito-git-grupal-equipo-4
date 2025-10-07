@@ -1,0 +1,7 @@
+import objetos.*
+describe "pelota" {
+  test "description" {
+    lionel.levantarla()
+    assert.equals( pelota.position().y() , pelota.position().y())
+  }
+}
