@@ -21,7 +21,7 @@ object lionel {
 	method irASaqueLateral(){
 		self.validarIrASaqueLateral()
 		position = game.at(position.x(), 0)
-		objeto.llevarObjetoALateral()
+		objeto.llevadoALateral()
 	}
 
 	method validarIrASaqueLateral() {
@@ -29,7 +29,7 @@ object lionel {
 			self.error("Flaco, no puedo estar sobre" + objeto + " en el mismo lugar")
 		}
 	}
-	
+
 	method estoySobreAlgo(algo){
 		return self.position() == algo.position()
 	}
@@ -37,4 +37,7 @@ object lionel {
 object pelota {
 	const property image="pelota.png"
 	var property position = game.at(5,5)
+	method llevadoALateral(){
+		position = game.at(position.x(), 0)
+	}
 }

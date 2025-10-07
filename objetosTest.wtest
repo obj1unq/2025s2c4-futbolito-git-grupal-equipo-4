@@ -1,8 +1,19 @@
+import wollok.game.*
+import objetos.*
 describe "Ir a saque lateral" {
     method initialize(){
-        
+        game.height(5)
+        game.width(5)
+        //game.clear()
     }
   test "Lionel no está sobre la pelota y va al saque lateral con ella" {
-
+    lionel.position(game.at(4, 4))
+    pelota.position(game.at(3, 4))
+    assert.doesNotThrowException({lionel.irASaqueLateral()})
+  }
+  test "Lionel está sobre la pelota y no puede ir al saque lateral con ella"{
+    lionel.position(game.at(4,4))
+    pelota.position(game.at(4,4))
+    assert.throwsException({ lionel.irASaqueLateral() })
   }
 }

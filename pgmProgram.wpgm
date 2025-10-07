@@ -2,7 +2,6 @@ import wollok.game.*
 import objetos.*
 
 program futbolito{
-
 	game.addVisual(lionel)
 	game.addVisual(pelota)
 	game.cellSize(40)
@@ -13,6 +12,4 @@ program futbolito{
 	keyboard.right().onPressDo({lionel.avanzar()})
 
 	game.start()
-
-
 }
