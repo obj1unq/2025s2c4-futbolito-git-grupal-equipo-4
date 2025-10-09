@@ -34,18 +34,27 @@ object lionel {
 	method patearDerecha() {
 		if (position == pelota.position()) {pelota.pateoADerecha()}
 			else { game.say(self, "pelota ven a mi") } 
-	}
-	
-}
+	}	
 
+	method taquito() {
+		pelota.taquito()
+	}
+}
 
 object pelota {
 	const property image="pelota.png"
-	var property position = game.at(5,5)	
+	var property position = game.at(5,5)
+
+	method taquito() {
+		if (self.position() == lionel.position()) {
+			position = game.at(0.max(position.x() - 2), position.y())
+		}
+	}
 
 	method pateoADerecha() {
 		position = game.at(self.incrementarXen3Max(position.x()), position.y())
 	}
+  
 	method incrementarXen3Max(posX) {
 		return posX +  3.min(game.width() - posX) 
 	}
@@ -54,8 +63,7 @@ object pelota {
 object camisetaSuplente {
 	method estado() = "suplente"
 
-	method siguienteCamiseta() = camisetaTitular 
-  
+	method siguienteCamiseta() = camisetaTitular
 }
 
 object camisetaTitular {
