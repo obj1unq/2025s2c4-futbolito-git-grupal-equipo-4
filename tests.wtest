@@ -15,5 +15,17 @@ describe "Leo" {
         lionel.patearDerecha()
         assert.equals(game.at(5,5), pelota.position())
     }
+
+    test "Taquito basico" {
+        lionel.position(pelota.position())
+        lionel.taquito()
+        assert.equals(game.at(3,5), pelota.position())
+    }
+
+    test "Taquito contra pared" {
+        pelota.position(lionel.position())
+        lionel.taquito()
+        assert.equals(game.at(0,5), pelota.position())
+    }
     
 }

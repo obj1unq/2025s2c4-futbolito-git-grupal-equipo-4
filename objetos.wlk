@@ -35,7 +35,6 @@ object lionel {
 		if (position == pelota.position()) {pelota.pateoADerecha()}
 			else { game.say(self, "pelota ven a mi") } 
 	}	
-}
 
 	method taquito() {
 		pelota.taquito()
